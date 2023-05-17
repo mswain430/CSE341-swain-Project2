@@ -1,0 +1,52 @@
+{
+  "name": "cse341-swain-project2",
+  "version": "1.0.0",
+  "description": "Project 2 and temple",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "connect-mongo": "^5.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-openid-connect": "^2.16.0",
+    "express-session": "^1.17.3",
+    "express-validator": "^7.0.1",
+    "joi": "^17.9.2",
+    "joi-password-complexity": "^5.1.0",
+    "jsonwebtoken": "^9.0.0",
+    "mongodb": "^5.3.0",
+    "mongoose": "^7.1.1",
+    "passport": "^0.6.0",
+    "passport-github2": "^0.1.12",
+    "swagger": "^0.0.1",
+    "swagger-ui": "^4.18.3",
+    "swagger-ui-express": "^4.6.3",
+    "validatorjs": "^3.22.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.10.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "nodemon": "^2.0.22",
+    "prettier": "^2.8.8",
+    "swagger-autogen": "^2.23.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "start-dev": "nodemon server.js",
+    "swagger": "node ./swagger.js",
+    "temple": "node ./templeindex.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mswain430/CSE341-swain.git"
+  },
+  "author": "Millie Swain",
+  "bugs": {
+    "url": "https://github.com/mswain430/cte341-swain/issues"
+  },
+  "homepage": "https://github.com/mswain430/cte341-swain#readme",
+  "license": "ISC"
+}
