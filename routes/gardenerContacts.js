@@ -11,9 +11,9 @@ routes.get('/', contactsController.getAll);
 
 routes.get('/:id', contactsController.getSingle);  
 
-routes.post('/', isAuthenticated, contactsController.createContact);
+routes.post('/', isAuthenticated, validation.saveFlower, contactsController.createContact);
 
-routes.put('/:id', isAuthenticated, contactsController.updateContact);
+routes.put('/:id', isAuthenticated, validation.saveFlower, contactsController.updateContact);
 
 routes.delete('/:id', isAuthenticated, contactsController.deleteContact);
 
