@@ -71,7 +71,7 @@ const updateFlower = async (req, res) => {
     const flowerId = new ObjectId({ id: req.params.id });
     // be aware of updateOne if you only want to update specific fields
     const flower = {
-        flowerName: flowerName,
+        flowerName: req.body.flowerName,
         img: req.body.img,
         desc: req.body.desc,
         zone: req.body.zone,
