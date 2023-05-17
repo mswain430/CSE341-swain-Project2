@@ -12,7 +12,7 @@ routes.use('/contacts', require('./gardenerContacts'));
 //routes.use('courses', require('./courses'));
 //routes.use('instructors', require('./instructors'));
 
-routes.get('/login', passport.Authenticator('github'), (req, res) => {});
+routes.get('/login', passport.authenticate('github'), (req, res) => {});
 
 routes.get('logout', function(req, res, next) {
     req.logout(function(err) {
