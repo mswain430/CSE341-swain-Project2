@@ -13,7 +13,6 @@ const app = express();
 app
   .use(bodyParser.json()) 
   .use(bodyParser.urlencoded({ extended: false }))
-  .use("/", require("./routes/index.js"))
   .use(session({
     secret: "secret",
     resave: false,
@@ -24,6 +23,7 @@ app
   // init pasport on every route call
   .use(passport.session())
   // allow passport to use "express-session"
+ .use("/", require("./routes/index.js"))
   .use((req, res, next) => {
    // req = console.log (`getting headers`);
     res.setHeader('Access-Control-Allow-Origin', '*');
