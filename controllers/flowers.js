@@ -68,7 +68,7 @@ const createFlower = async (req, res) => {
 const updateFlower = async (req, res) => {
   if (!ObjectId.isValid(req.params.id)) {
     res.status(400).json('Must use a valid contact id to fine a flower instance')  }
-    const flowerId = new ObjectId(req.params.id);
+    const flowerId = new ObjectId({ id: req.params.id });
     // be aware of updateOne if you only want to update specific fields
     const flower = {
         flowerName: flowerName,
@@ -80,8 +80,8 @@ const updateFlower = async (req, res) => {
         zipcode: req.body.zipcode,
         type: req.body.type
     };
-  const response = await mongodb.getDb().db('flowerdb').collection('flowers').updateOne({ _id: flowerId }, flower);
-  console.log(response);
+  const response = await mongodb.getDb().db('flowerdb').collection('flowers').replaceOne({ _id: flowerId }, flower);
+ // console.log(response);
   if (response.modifiedCount > 0) {
     res.status(204).send();
   } else {
