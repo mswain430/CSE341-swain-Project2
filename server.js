@@ -11,6 +11,7 @@ const port = process.env.PORT || 3000;
 const app = express();
 
 app
+  .use("/", require("./routes/index.js"))
   .use(bodyParser.json()) 
   .use(bodyParser.urlencoded({ extended: false }))
   .use(session({
@@ -32,9 +33,8 @@ app
     next()
   })
   .use(cors({ methods: ['GET','POST','DELETE','UPDATE','PUT','PATCH']}))
-  .use(cors({ origin: '*' }))
-  .use("/", require("./routes/index.js"));  
-
+  .use(cors({ origin: '*' }));
+  
  /* process.on('uncaughtException', (err, origin) => {
   console.log(process.stderr.fd, `Caught exception: ${err}\n` + `Exception origin: ${origin}`)
  }); */
