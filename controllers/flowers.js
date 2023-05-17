@@ -71,17 +71,15 @@ const updateFlower = async (req, res) => {
     const flowerId = new ObjectId(req.params.id);
     // be aware of updateOne if you only want to update specific fields
     const flower = {
-      $set: {
-        flowerName: req.body.flowerName,
+        flowerName: flowerName,
         img: req.body.img,
         desc: req.body.desc,
         zone: req.body.zone,
         bloomTime: req.body.bloomTime,
         exposure: req.body.exposure,
         zipcode: req.body.zipcode,
-        type: req.body.type,
-    }
-  };
+        type: req.body.type
+    };
   const response = await mongodb.getDb().db('flowerdb').collection('flowers').updateOne({ _id: flowerId }, flower);
   console.log(response);
   if (response.modifiedCount > 0) {
