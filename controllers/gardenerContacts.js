@@ -88,11 +88,11 @@ const deleteContact = async (req, res) => {
   if (!ObjectId.isValid(req.params.id)) {
     res.status(400).json('Must use a valid contact id to fine a flower instance') 
     }
-    const userId = new ObjectId(req.params.id);
+    const userId = new ObjectId({ id: req.params.id });
     const response = await mongodb.getDb().db('flowerdb').collection('contacts').deleteOne({ _id: userId }, true);
     console.log(response);
     if (response.deletedCount > 0) {
-      res.status(204).send();
+      res.status(200).send();
     } else {
         res.status(500).json(response.error || 'Some error occurred while deleting the contact.');
     }
