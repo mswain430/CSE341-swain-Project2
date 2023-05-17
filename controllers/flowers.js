@@ -2,14 +2,14 @@ const mongodb = require('../db/connect');
 const ObjectId = require('mongodb').ObjectId;
 const Joi = require('joi');
 const schema = Joi.object({ 
-  flowerName: Joi.string().required().empty(),
-  img: Joi.string().required().empty(),
-  desc: Joi.string().required().empty(), 
-  zone: Joi.string().required().empty(), 
-  bloomTime: Joi.string().required().empty(), 
-  exposure: Joi.string().required().empty(), 
-  zipcode: Joi.number().required().empty(),
-  type: Joi.string().required().empty()
+  flowerName: Joi.string().required(),
+  img: Joi.string().required(),
+  desc: Joi.string().required(), 
+  zone: Joi.string().required(), 
+  bloomTime: Joi.string().required(), 
+  exposure: Joi.string().required(), 
+  zipcode: Joi.number().required(),
+  type: Joi.string().required()
  });
 
  const getAll = async (req, res) => {
